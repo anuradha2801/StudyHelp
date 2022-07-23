@@ -1,20 +1,72 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import React from 'react';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import {View,Text} from 'react-native';
+import Home from "./Components/Home"
+const Drawer=createDrawerNavigator();
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+function HomeScreen(){
+  return(
+    <View>
+        <Home/>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+function PreviousYearQp(){
+  return(
+    <View>
+      <Text>
+        About Screen
+      </Text>
+    </View>
+  )
+}
+
+
+function Notes(){
+  return(
+    <View>
+      <Text>
+        About Screen
+      </Text>
+    </View>
+  )
+}
+
+
+function Experiences(){
+  return(
+    <View>
+      <Text>
+        About Screen
+      </Text>
+    </View>
+  )
+}
+
+function ContactScreen(){
+  return(
+    <View>
+      <Text>
+        contact Screen
+      </Text>
+    </View>
+  )
+}
+const App=()=>{
+  return(
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name='Home' component={HomeScreen}/>
+        <Drawer.Screen name='Previous Year Q/P' component={PreviousYearQp}/>
+        <Drawer.Screen name='Notes' component={Notes}/>
+        <Drawer.Screen name='Experiences' component={Experiences}/>
+        <Drawer.Screen name='Contact' component={ContactScreen}/>
+      </Drawer.Navigator>
+    </NavigationContainer>
+  )
+}
+export default App;
