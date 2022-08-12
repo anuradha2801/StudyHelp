@@ -2,57 +2,48 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import {View,Text} from 'react-native';
-import Home from "./Components/Home"
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {View,Text,TouchableOpacity,ImageBackground,StyleSheet} from 'react-native';
+import Home from "./Components/Home";
+import Abt from './Components/Abt';
+import End from './Components/End';
+import Notes from './Components/Notes';
+import Experiences from './Components/Experiences';
+
 const Drawer=createDrawerNavigator();
+const Stack=createNativeStackNavigator();
 
 function HomeScreen(){
   return(
-    <View>
-        <Home/>
-    </View>
+  <Home/>
   )
-}
 
+}
 
 function PreviousYearQp(){
   return(
-    <View>
-      <Text>
-        About Screen
-      </Text>
-    </View>
+    <End/>
   )
 }
 
 
-function Notes(){
+function NotesScreen(){
   return(
-    <View>
-      <Text>
-        About Screen
-      </Text>
-    </View>
+   <Notes/>
   )
 }
 
 
-function Experiences(){
+function ExperiencesScreen(){
   return(
-    <View>
-      <Text>
-        About Screen
-      </Text>
-    </View>
+    <Experiences/>
   )
 }
 
 function ContactScreen(){
   return(
     <View>
-      <Text>
-        contact Screen
-      </Text>
+      <Abt/>
     </View>
   )
 }
@@ -62,9 +53,9 @@ const App=()=>{
       <Drawer.Navigator>
         <Drawer.Screen name='Home' component={HomeScreen}/>
         <Drawer.Screen name='Previous Year Q/P' component={PreviousYearQp}/>
-        <Drawer.Screen name='Notes' component={Notes}/>
-        <Drawer.Screen name='Experiences' component={Experiences}/>
-        <Drawer.Screen name='Contact' component={ContactScreen}/>
+        <Drawer.Screen name='Notes' component={NotesScreen}/>
+        <Drawer.Screen name='Experiences' component={ExperiencesScreen}/>
+        <Drawer.Screen name='About Us' component={ContactScreen}/>
       </Drawer.Navigator>
     </NavigationContainer>
   )
